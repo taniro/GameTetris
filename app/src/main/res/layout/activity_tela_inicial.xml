@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TelaInicial">
+
+    <ImageView
+        android:id="@+id/logoInicio"
+        android:layout_width="231dp"
+        android:layout_height="132dp"
+        android:layout_marginTop="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/arrow_up_float" />
+
+    <LinearLayout
+        android:layout_width="365dp"
+        android:layout_height="472dp"
+        android:layout_marginTop="28dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logoInicio">
+
+        <Button
+            android:id="@+id/novoJogo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Novo Jogo" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Continuar" />
+
+        <Button
+            android:id="@+id/btnConfig"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Configurar" />
+
+        <ImageView
+            android:id="@+id/imgpecas"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:cropToPadding="false"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            app:srcCompat="@android:drawable/btn_star_big_on" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

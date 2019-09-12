@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TelaResultado">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="390dp"
+        android:layout_height="598dp"
+        android:layout_marginTop="116dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:text="Pontuação: 0000"
+            android:textAlignment="center"
+            android:textColor="#EE8F09"
+            android:textColorHighlight="#FCF5BD14"
+            android:textSize="25dp" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:text="Recorde: 0000"
+            android:textAlignment="center"
+            android:textColor="#EE8F09"
+            android:textSize="25dp" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:text="Novo Recorde"
+            android:textAlignment="center"
+            android:textColor="#EE8F09"
+            android:textSize="25dp" />
+
+        <ImageView
+            android:id="@+id/logoFim"
+            android:layout_width="288dp"
+            android:layout_height="98dp"
+            android:layout_marginLeft="45dp"
+            android:layout_marginTop="35dp"
+            app:srcCompat="@android:drawable/btn_default" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="Novo Jogo" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sair" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="212dp"
+        android:layout_height="51dp"
+        android:layout_marginBottom="48dp"
+        android:fontFamily="casual"
+        android:text="Game Over"
+        android:textColor="#F70157"
+        android:textSize="38dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
