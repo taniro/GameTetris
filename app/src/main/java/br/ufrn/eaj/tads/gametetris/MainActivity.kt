@@ -10,8 +10,8 @@ import androidx.core.app.ComponentActivity
 import androidx.core.app.ComponentActivity.ExtraData
 import androidx.core.content.ContextCompat.getSystemService
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-
-
+import classes.L
+import classes.Ponto
 
 
 class MainActivity : AppCompatActivity() {
@@ -21,13 +21,7 @@ class MainActivity : AppCompatActivity() {
     var running = true
     var speed:Long = 300
 
-    var pt = Ponto(0,15)
-
-    inner class Ponto(var x:Int,var y:Int){
-        fun moveDown(){
-            x++
-        }
-    }
+    var pt = L(0,15)
 
 
     //val board = Array(LINHA, { IntArray(COLUNA) })
@@ -74,10 +68,14 @@ class MainActivity : AppCompatActivity() {
                     pt.moveDown()
                     //print peça
                     try {
-                        boardView[pt.x][pt.y]!!.setImageResource(R.drawable.white)
+                        boardView[pt.pontoA.x][pt.pontoA.y]!!.setImageResource(R.drawable.white)
+                        boardView[pt.pontoB.x][pt.pontoB.y]!!.setImageResource(R.drawable.white)
+                        boardView[pt.pontoC.x][pt.pontoC.y]!!.setImageResource(R.drawable.white)
+                        boardView[pt.pontoD.x][pt.pontoD.y]!!.setImageResource(R.drawable.white)
                     }catch (e:ArrayIndexOutOfBoundsException ) {
                         //se a peça passou das bordas eu vou parar o jogo
-                        running = false
+                        // ajeitar isso ta descendo mas a lógica ta errada pode ser aqui ou nas peças
+                        running = true
                     }
 
                 }
