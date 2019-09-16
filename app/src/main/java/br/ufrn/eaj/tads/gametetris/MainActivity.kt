@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
     var running = true
     var speed:Long = 300
 
-    var pt = L(0,15)
+    var pt = L(1,15)
 
 
     //val board = Array(LINHA, { IntArray(COLUNA) })
@@ -74,8 +74,7 @@ class MainActivity : AppCompatActivity() {
                         boardView[pt.pontoD.x][pt.pontoD.y]!!.setImageResource(R.drawable.white)
                     }catch (e:ArrayIndexOutOfBoundsException ) {
                         //se a peça passou das bordas eu vou parar o jogo
-                        // ajeitar isso ta descendo mas a lógica ta errada pode ser aqui ou nas peças
-                        running = true
+                        running = false
                     }
 
                 }
