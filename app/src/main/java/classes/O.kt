@@ -37,7 +37,7 @@ class O(x:Int, y:Int) : Peca(x,y) {
         pontoC.y += 0
 
         pontoD.x += 0
-        pontoD.y -= 0
+        //pontoD.y -= 0
     }
 
 }
