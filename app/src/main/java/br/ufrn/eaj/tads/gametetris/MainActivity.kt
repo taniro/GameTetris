@@ -2,16 +2,10 @@ package br.ufrn.eaj.tads.gametetris
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.ImageView
 import kotlinx.android.synthetic.main.activity_main.*
 import android.view.LayoutInflater
-import androidx.core.app.ComponentActivity
-import androidx.core.app.ComponentActivity.ExtraData
-import androidx.core.content.ContextCompat.getSystemService
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-import classes.L
-import classes.Ponto
+import classes.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -19,9 +13,9 @@ class MainActivity : AppCompatActivity() {
     val LINHA = 36
     val COLUNA = 26
     var running = true
-    var speed:Long = 500
+    var speed:Long = 300
 
-    var pt = L(1,12)
+    var pt = Z(1,12)
 
 
     //val board = Array(LINHA, { IntArray(COLUNA) })
