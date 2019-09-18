@@ -19,9 +19,9 @@ class MainActivity : AppCompatActivity() {
     val LINHA = 36
     val COLUNA = 26
     var running = true
-    var speed:Long = 300
+    var speed:Long = 500
 
-    var pt = L(1,15)
+    var pt = L(1,12)
 
 
     //val board = Array(LINHA, { IntArray(COLUNA) })
@@ -50,7 +50,24 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        buttonLeft.setOnClickListener {
+            pt.moveLeft()
+        }
+
+        buttonRight.setOnClickListener {
+            pt.moveRight()
+        }
+
+        buttonRotate.setOnClickListener {
+            pt.rotate()
+        }
+
+        buttonSpeed.setOnClickListener {
+            speed += 100
+        }
+
         gameRun()
+
     }
 
     fun gameRun(){

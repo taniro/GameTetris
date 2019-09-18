@@ -4,11 +4,56 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:gravity="center">
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingTop="20sp"
+    tools:context=".MainActivity">
 
     <GridLayout
         android:id="@+id/gridboard"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content">
+
+    </GridLayout>
+
+    <LinearLayout
+        android:layout_width="423dp"
+        android:layout_height="99dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="15dp">
+
+        <Button
+            android:id="@+id/buttonRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Left"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/buttonLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="right"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/buttonRotate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Rotate"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/buttonSpeed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Speed"
+            android:textSize="18sp" />
+    </LinearLayout>
+
 </LinearLayout>
