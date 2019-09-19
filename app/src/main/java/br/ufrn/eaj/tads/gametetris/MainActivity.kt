@@ -17,6 +17,8 @@ class MainActivity : AppCompatActivity() {
     var speed:Long = 350
 
     var pt = L(1,12)
+
+    // Lista de Peças do meu jogo
     val ponto = listOf<Peca>(L(1,12),O(1,12),I(1,12),T(1,12),
                                         L2(1,12),Z(1,12),S(1,12))
 
@@ -39,6 +41,7 @@ class MainActivity : AppCompatActivity() {
         gridboard.rowCount = LINHA
         gridboard.columnCount = COLUNA
 
+        // Gerar as paças aleatórias // #Verificar se funcionar quando gerar conflitos
         pecas = Random.nextInt(0, 6)
 
         val inflater = LayoutInflater.from(this)
