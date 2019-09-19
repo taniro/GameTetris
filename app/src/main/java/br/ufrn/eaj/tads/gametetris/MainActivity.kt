@@ -6,6 +6,7 @@ import android.widget.ImageView
 import kotlinx.android.synthetic.main.activity_main.*
 import android.view.LayoutInflater
 import classes.*
+import kotlin.random.Random
 
 
 class MainActivity : AppCompatActivity() {
@@ -13,12 +14,15 @@ class MainActivity : AppCompatActivity() {
     val LINHA = 36
     val COLUNA = 26
     var running = true
-    var speed:Long = 300
+    var speed:Long = 350
 
-    var pt = Z(1,12)
-
+    var pt = L(1,12)
+    val ponto = listOf<Peca>(L(1,12),O(1,12),I(1,12),T(1,12),
+                                        L2(1,12),Z(1,12),S(1,12))
 
     //val board = Array(LINHA, { IntArray(COLUNA) })
+
+    var pecas:Int = 0
 
     var board = Array(LINHA) {
         Array(COLUNA){0}
@@ -35,6 +39,8 @@ class MainActivity : AppCompatActivity() {
         gridboard.rowCount = LINHA
         gridboard.columnCount = COLUNA
 
+        pecas = Random.nextInt(0, 6)
+
         val inflater = LayoutInflater.from(this)
 
         for (i in 0 until LINHA) {
@@ -45,15 +51,15 @@ class MainActivity : AppCompatActivity() {
         }
 
         buttonLeft.setOnClickListener {
-            pt.moveLeft()
+            ponto[pecas].moveLeft()
         }
 
         buttonRight.setOnClickListener {
-            pt.moveRight()
+            ponto[pecas].moveRight()
         }
 
         buttonRotate.setOnClickListener {
-            pt.rotate()
+            ponto[pecas].rotate()
         }
 
         buttonSpeed.setOnClickListener {
@@ -76,15 +82,17 @@ class MainActivity : AppCompatActivity() {
                         }
                     }
                     //move peça atual
-                    pt.moveDown()
+                    ponto[pecas].moveDown()
                     //print peça
                     try {
-                        boardView[pt.pontoA.x][pt.pontoA.y]!!.setImageResource(R.drawable.white)
-                        boardView[pt.pontoB.x][pt.pontoB.y]!!.setImageResource(R.drawable.white)
-                        boardView[pt.pontoC.x][pt.pontoC.y]!!.setImageResource(R.drawable.white)
-                        boardView[pt.pontoD.x][pt.pontoD.y]!!.setImageResource(R.drawable.white)
+                        boardView[ponto[pecas].pontoA.x][ponto[pecas].pontoA.y]!!.setImageResource(R.drawable.white)
+                        boardView[ponto[pecas].pontoB.x][ponto[pecas].pontoB.y]!!.setImageResource(R.drawable.white)
+                        boardView[ponto[pecas].pontoC.x][ponto[pecas].pontoC.y]!!.setImageResource(R.drawable.white)
+                        boardView[ponto[pecas].pontoD.x][ponto[pecas].pontoD.y]!!.setImageResource(R.drawable.white)
+
                     }catch (e:ArrayIndexOutOfBoundsException ) {
                         //se a peça passou das bordas eu vou parar o jogo
+
                         running = false
                     }
 
@@ -92,4 +100,5 @@ class MainActivity : AppCompatActivity() {
             }
         }.start()
     }
+
 }
