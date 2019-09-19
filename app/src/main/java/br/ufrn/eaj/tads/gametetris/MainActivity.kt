@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
 
     //val board = Array(LINHA, { IntArray(COLUNA) })
 
-    var pecas:Int = 0
+    var pecas:Int = Random.nextInt(0, 6)
 
     var board = Array(LINHA) {
         Array(COLUNA){0}
@@ -42,7 +42,9 @@ class MainActivity : AppCompatActivity() {
         gridboard.columnCount = COLUNA
 
         // Gerar as paças aleatórias // #Verificar se funcionar quando gerar conflitos
-        pecas = Random.nextInt(0, 6)
+        //pecas = Random.nextInt(0, 6)
+
+
 
         val inflater = LayoutInflater.from(this)
 
@@ -85,7 +87,9 @@ class MainActivity : AppCompatActivity() {
                         }
                     }
                     //move peça atual
-                    ponto[pecas].moveDown()
+
+                    verificarParada()
+                    //ponto[pecas].moveDown()
                     //print peça
                     try {
                         boardView[ponto[pecas].pontoA.x][ponto[pecas].pontoA.y]!!.setImageResource(R.drawable.white)
@@ -102,6 +106,19 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }.start()
+    }
+
+    fun verificarParada(){
+
+        if(ponto[pecas].pontoB.x <= 34 && ponto[pecas].pontoB.y <= 60 &&
+            ponto[pecas].pontoC.x <= 34 && ponto[pecas].pontoC.y <= 60 &&
+            ponto[pecas].pontoD.x <= 34 && ponto[pecas].pontoD.y <= 60 &&
+            ponto[pecas].pontoA.x <= 34 && ponto[pecas].pontoA.y <= 60
+        )
+
+        {
+            ponto[pecas].moveDown()
+        }
     }
 
 }
