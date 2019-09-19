@@ -16,15 +16,16 @@ class MainActivity : AppCompatActivity() {
     var running = true
     var speed:Long = 350
 
-    var pt = L(1,12)
+    var pt:Peca = O(1,12)
 
     // Lista de Peças do meu jogo
-    val ponto = listOf<Peca>(L(1,12),O(1,12),I(1,12),T(1,12),
-                                        L2(1,12),Z(1,12),S(1,12))
+    //val ponto = listOf<Peca>(L(1,12),O(1,12),I(1,12),T(1,12),
+    //                                   L2(1,12),Z(1,12),S(1,12))
 
     //val board = Array(LINHA, { IntArray(COLUNA) })
 
     var pecas:Int = Random.nextInt(0, 6)
+
 
     var board = Array(LINHA) {
         Array(COLUNA){0}
@@ -42,9 +43,6 @@ class MainActivity : AppCompatActivity() {
         gridboard.columnCount = COLUNA
 
         // Gerar as paças aleatórias // #Verificar se funcionar quando gerar conflitos
-        //pecas = Random.nextInt(0, 6)
-
-
 
         val inflater = LayoutInflater.from(this)
 
@@ -56,15 +54,15 @@ class MainActivity : AppCompatActivity() {
         }
 
         buttonLeft.setOnClickListener {
-            ponto[pecas].moveLeft()
+            pt.moveLeft()
         }
 
         buttonRight.setOnClickListener {
-            ponto[pecas].moveRight()
+            pt.moveRight()
         }
 
         buttonRotate.setOnClickListener {
-            ponto[pecas].rotate()
+            pt.rotate()
         }
 
         buttonSpeed.setOnClickListener {
@@ -76,6 +74,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun gameRun(){
+
         Thread{
             while(running){
                 Thread.sleep(speed)
@@ -92,10 +91,10 @@ class MainActivity : AppCompatActivity() {
                     //ponto[pecas].moveDown()
                     //print peça
                     try {
-                        boardView[ponto[pecas].pontoA.x][ponto[pecas].pontoA.y]!!.setImageResource(R.drawable.white)
-                        boardView[ponto[pecas].pontoB.x][ponto[pecas].pontoB.y]!!.setImageResource(R.drawable.white)
-                        boardView[ponto[pecas].pontoC.x][ponto[pecas].pontoC.y]!!.setImageResource(R.drawable.white)
-                        boardView[ponto[pecas].pontoD.x][ponto[pecas].pontoD.y]!!.setImageResource(R.drawable.white)
+                        boardView[pt.pontoA.x][pt.pontoA.y]!!.setImageResource(R.drawable.white)
+                        boardView[pt.pontoB.x][pt.pontoB.y]!!.setImageResource(R.drawable.white)
+                        boardView[pt.pontoC.x][pt.pontoC.y]!!.setImageResource(R.drawable.white)
+                        boardView[pt.pontoD.x][pt.pontoD.y]!!.setImageResource(R.drawable.white)
 
                     }catch (e:ArrayIndexOutOfBoundsException ) {
                         //se a peça passou das bordas eu vou parar o jogo
@@ -108,17 +107,35 @@ class MainActivity : AppCompatActivity() {
         }.start()
     }
 
+    //Função que verifica parada dos Obejtos
     fun verificarParada(){
 
-        if(ponto[pecas].pontoB.x <= 34 && ponto[pecas].pontoB.y <= 60 &&
-            ponto[pecas].pontoC.x <= 34 && ponto[pecas].pontoC.y <= 60 &&
-            ponto[pecas].pontoD.x <= 34 && ponto[pecas].pontoD.y <= 60 &&
-            ponto[pecas].pontoA.x <= 34 && ponto[pecas].pontoA.y <= 60
+        if(pt.pontoB.x <= 34 && pt.pontoB.y <= 24 &&
+            pt.pontoC.x <= 34 && pt.pontoC.y <= 24 &&
+            pt.pontoD.x <= 34 && pt.pontoD.y <= 24 &&
+            pt.pontoA.x <= 34 && pt.pontoA.y <= 24
         )
 
         {
-            ponto[pecas].moveDown()
+            pt.moveDown()
+        }else{
+            pecas = Random.nextInt(1, 7)
+            pecasAleatorias(pecas)
         }
+    }
+
+    fun pecasAleatorias(x:Int){
+
+        when(x){
+            1 -> pt = L(1,12)
+            2 -> pt = I(1,12)
+            3 -> pt = O(1,12)
+            4 -> pt = L2(1,12)
+            5 -> pt = Z(1,12)
+            6 -> pt = S(1,12)
+            7 -> pt = T(1,12)
+        }
+
     }
 
 }
