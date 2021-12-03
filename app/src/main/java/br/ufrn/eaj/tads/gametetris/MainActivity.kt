@@ -16,16 +16,19 @@ import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 
 class MainActivity : AppCompatActivity() {
 
-    val LINHA = 36
+    val LINHA = 54
     val COLUNA = 26
     var running = true
-    var speed:Long = 300
+    var speed:Long = 150
 
     var pt = Ponto(0,15)
 
     inner class Ponto(var x:Int,var y:Int){
         fun moveDown(){
             x++
+        }
+        fun moveLeft(){
+            y++
         }
     }
 
@@ -71,6 +74,7 @@ class MainActivity : AppCompatActivity() {
                         }
                     }
                     //move peça atual
+                    //WHEN (DIRECAO = LEFT)
                     pt.moveDown()
                     //print peça
                     try {
